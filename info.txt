@@ -1,0 +1,11 @@
+so we use inheritance type single table but the issue with that is that we cant enforce nullable= false on it
+things are bound to be null at some time
+
+table per class
+same as mapped super class except parent has a dedicated table
+child can inherit the parent class
+
+Joined class:
+joined class vs table per class vs mapped super class
+
+inheritance vs composition

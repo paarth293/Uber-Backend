@@ -15,28 +15,14 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 @NoArgsConstructor
 @Builder
-public class Review {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Review extends BaseModel {
 
     @Column(nullable = false)
     private String content;
 
     private Double rating;
 
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    @CreatedDate
-    private Date createdAt;
-
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    @LastModifiedDate
-    private Date updatedAt;
-
-
-
-
+    @Override
+    public String toString() { return "Review: " + this.content + " " + this.rating + " " + this.createdAt;}
 }
