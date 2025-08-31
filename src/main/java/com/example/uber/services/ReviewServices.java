@@ -1,6 +1,8 @@
 package com.example.uber.services;
 
+import com.example.uber.models.Booking;
 import com.example.uber.models.Review;
+import com.example.uber.repositories.BookingRepository;
 import com.example.uber.repositories.ReviewRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
@@ -11,9 +13,11 @@ import java.util.List;
 @Service
 public class ReviewServices implements CommandLineRunner {
     private final ReviewRepository reviewRepository;
+    private final BookingRepository bookingRepository;
 
-    public ReviewServices(ReviewRepository reviewRepository) {
+    public ReviewServices(ReviewRepository reviewRepository, BookingRepository bookingRepository) {
         this.reviewRepository = reviewRepository;
+        this.bookingRepository = bookingRepository;
     }
 
     @Override
@@ -24,6 +28,15 @@ public class ReviewServices implements CommandLineRunner {
                 .content("Amazing ride quality")
                 .rating(5.0)
                 .build();
+
+        Booking b = Booking
+                .builder()
+                .review(r)
+                .endTime(new Date())
+                .build();
+
+        bookingRepository.save(b);
+
         System.out.println(r);
         reviewRepository.save(r); // this code executes the sql query
         System.out.println(r.getId());

@@ -9,3 +9,5 @@ Joined class:
 joined class vs table per class vs mapped super class
 
 inheritance vs composition
+
+@Enumerated gives us the option that we can tell in what data type we want to store the enum
