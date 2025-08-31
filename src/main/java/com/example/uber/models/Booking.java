@@ -2,6 +2,7 @@ package com.example.uber.models;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.engine.internal.Cascade;
 
 import java.util.Date;
 
@@ -13,7 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class Booking extends BaseModel{
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Review review;
 
     @Enumerated(value = EnumType.STRING)

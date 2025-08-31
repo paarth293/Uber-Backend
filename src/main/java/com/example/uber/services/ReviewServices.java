@@ -35,10 +35,11 @@ public class ReviewServices implements CommandLineRunner {
                 .endTime(new Date())
                 .build();
 
+        reviewRepository.save(r); // this code executes the sql query
         bookingRepository.save(b);
 
         System.out.println(r);
-        reviewRepository.save(r); // this code executes the sql query
+
         System.out.println(r.getId());
 
         List<Review> reviews = reviewRepository.findAll();

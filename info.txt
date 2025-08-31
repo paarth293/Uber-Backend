@@ -3,6 +3,7 @@ things are bound to be null at some time
 
 table per class
 same as mapped super class except parent has a dedicated table
+
 child can inherit the parent class
 
 Joined class:
@@ -11,3 +12,11 @@ joined class vs table per class vs mapped super class
 inheritance vs composition
 
 @Enumerated gives us the option that we can tell in what data type we want to store the enum
+
+understand in relationships that what needs to be created when order do matters
+
+cascade type basically tells that what need to be saved when that is the upper example of relationship
+so cascade manages that and checks what need to be created first irrespective of the flow
+
+in one to one any side can have the foreign key but in one to many many side must have the foreign key
+
